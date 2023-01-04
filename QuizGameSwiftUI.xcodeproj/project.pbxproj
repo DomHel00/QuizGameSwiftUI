@@ -32,6 +32,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E90B8F3329659B97007BFB03 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E90B8F3429659BB2007BFB03 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E95060E029659A5600077329 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E90B8F3529659BBF007BFB03 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E90B8F3629659BDB007BFB03 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		E95060D229659A5600077329 = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +81,10 @@
 			isa = PBXGroup;
 			children = (
 				E95060DE29659A5600077329 /* QuizGameSwiftUIApp.swift */,
-				E95060E029659A5600077329 /* ContentView.swift */,
+				E90B8F3329659B97007BFB03 /* Models */,
+				E90B8F3429659BB2007BFB03 /* Views */,
+				E90B8F3529659BBF007BFB03 /* ViewModels */,
+				E90B8F3629659BDB007BFB03 /* Utilities */,
 				E95060E229659A5800077329 /* Assets.xcassets */,
 				E95060E429659A5800077329 /* Preview Content */,
 			);
