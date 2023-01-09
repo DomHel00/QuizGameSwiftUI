@@ -125,10 +125,9 @@
 				E90B8F3429659BB2007BFB03 /* Views */,
 				E90B8F3529659BBF007BFB03 /* ViewModels */,
 				E90B8F3629659BDB007BFB03 /* Utilities */,
+				E9733810296C93C400322E09 /* Other */,
 				E95060E229659A5800077329 /* Assets.xcassets */,
 				E95060E429659A5800077329 /* Preview Content */,
-				E90E6A51296AEC41001C0111 /* Constants.swift */,
-				E947A20D296C5D4700BC5FCC /* Extensions.swift */,
 			);
 			path = QuizGameSwiftUI;
 			sourceTree = "<group>";
@@ -139,6 +138,15 @@
 				E95060E529659A5800077329 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E9733810296C93C400322E09 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				E90E6A51296AEC41001C0111 /* Constants.swift */,
+				E947A20D296C5D4700BC5FCC /* Extensions.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
