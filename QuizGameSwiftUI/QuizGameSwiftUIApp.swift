@@ -12,6 +12,9 @@ struct QuizGameSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             LaunchView()
+                .onAppear {
+                    InternetConnectionMonitor.shared.startMonitoring()
+                }
         }
     }
 }
