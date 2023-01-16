@@ -33,7 +33,6 @@ struct Question: Codable {
     static let example = Question(category: "Entertainment: Books", type: "multiple", difficulty: "hard", question: "In the book The Martian how long was Mark Watney trapped on Mars (in Sols)?", correct_answer: "549 Days", incorrect_answers: ["765 Days", "401 Days", "324 Days"])
 }
 
-
 //  MARK: - Struct Quiz
 struct Quiz: Codable {
     let response_code: Int
