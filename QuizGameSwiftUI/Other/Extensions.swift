@@ -16,3 +16,11 @@ extension String {
         return String(data: data, encoding: .utf8)
     }
 }
+
+/// Extension of the FileManager class  by a static computed property to get a documentsDirectory URL.
+extension FileManager {
+    static var documentsDirectory: URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+}
