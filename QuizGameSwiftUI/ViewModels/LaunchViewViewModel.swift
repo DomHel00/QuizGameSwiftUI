@@ -13,11 +13,24 @@ import Foundation
 final class LaunchViewViewModel: ObservableObject {
     //  MARK: - Constants and variables
     /// Array with downloaded data  of categories.
-    @Published private(set) var categories = [Category]()
+    private var categories = [Category]()
     
     /// Array with downloaded data  of selected quiz.
     private(set) var quiz = [Question]()
-
+    
+    /// Holds searched text.
+    @Published var searchText = ""
+    
+    /// Array with filtered categories.
+    var filteredcategories: [Category] {
+        if searchText.isEmpty || searchText == "" {
+            return categories
+        }
+        else {
+            return categories.filter { $0.displayName.localizedCaseInsensitiveContains(searchText) }
+        }
+    }
+    
     /// Alerts trigger.
     @Published var showAlert = false
     

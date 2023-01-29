@@ -40,9 +40,11 @@ struct LaunchView: View {
                 
                 /// List of categories.
                 List {
-                    ForEach(viewModel.categories) { category in
+                    ForEach(viewModel.filteredcategories) { category in
                         HStack {
                             Button(category.displayName) {
+                                // We need to hide the keyboard before displaying GameView.
+                                UIApplication.shared.endEditing()
                                 viewModel.selectedCategoryID = category.id
                                 Task {
                                     await viewModel.fetchQuiz()
@@ -86,6 +88,8 @@ struct LaunchView: View {
                 }
             }
         }
+        .searchable(text: $viewModel.searchText, placement: .toolbar, prompt: "Search a category...")
+        .autocorrectionDisabled()
         .disabled(viewModel.disabledUI)
         .task {
             await viewModel.fetchCategories()

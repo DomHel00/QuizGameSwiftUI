@@ -12,6 +12,7 @@ import SwiftUI
 struct GameView: View {
     //  MARK: - Constants and variables
     @Environment(\.dismiss) var dismiss
+    @Environment(\.dismissSearch) var dismissSearch
     @StateObject private var viewModel: GameViewViewModel
     
     //  MARK: - Init
@@ -126,6 +127,12 @@ struct GameView: View {
             let quizResult = QuizResult(numberOfQuestions: viewModel.quiz.count, numberOfCorrectAnswers: viewModel.numberOfCorrectAnswers, numberOfIncorrectAnswers: viewModel.numberOfIncorrectAnswers, quizCategory: viewModel.quiz[0].category)
             NavigationView {
                 EndGameView(quizResult: quizResult)
+            }
+        }
+        /// Closes the "searchBar" in LaunchView.
+        .onDisappear {
+            withAnimation {
+                dismissSearch()
             }
         }
     }

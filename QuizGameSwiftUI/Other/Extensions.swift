@@ -5,7 +5,7 @@
 //  Created by Dominik Hel on 09.01.2023.
 //
 
-import Foundation
+import SwiftUI
 
 /// Extension of the String structure by a function for decoding.
 extension String {
@@ -22,5 +22,12 @@ extension FileManager {
     static var documentsDirectory: URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
+    }
+}
+
+/// Extension of the UIApplication class by a function for hiding keyboard.
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
