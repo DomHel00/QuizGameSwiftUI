@@ -18,10 +18,21 @@ final class APICaller {
     private init() {}
     
     //  MARK: - Enums
-    enum APICallerError: String, Error {
-        case invalidURL = "Invalid URL! Please contact us."
-        case dataTaskError = "Fatal eror during task! Please contact us"
-        case decodingError = "Fatal eror during decoding! Please contact us"
+    enum APICallerError: Error, LocalizedError {
+        case invalidURL
+        case dataTaskError
+        case decodingError
+        
+        var errorDescription: String? {
+            switch self {
+            case .invalidURL:
+                return NSLocalizedString("The endpoint URL is invalid.", comment: "")
+            case .dataTaskError:
+                return NSLocalizedString("Fatal eror during task.", comment: "")
+            case .decodingError:
+                return NSLocalizedString("Fatal eror during decoding.", comment: "")
+            }
+        }
     }
     
     //  MARK: - Functions

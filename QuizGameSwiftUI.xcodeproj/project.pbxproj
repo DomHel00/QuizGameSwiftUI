@@ -18,11 +18,11 @@
 		E95060E629659A5800077329 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95060E529659A5800077329 /* Preview Assets.xcassets */; };
 		E95E7E67296874C700F15C8F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95E7E66296874C700F15C8F /* SettingsView.swift */; };
 		E96933502966EE6400CB5AB0 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E969334F2966EE6400CB5AB0 /* GameView.swift */; };
-		E9784A0129707C50006204D2 /* ProfileViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9784A0029707C50006204D2 /* ProfileViewViewModel.swift */; };
+		E9784A0129707C50006204D2 /* QuizHistoryViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9784A0029707C50006204D2 /* QuizHistoryViewViewModel.swift */; };
 		E990588029659EBF00496982 /* InternetConnectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E990587F29659EBF00496982 /* InternetConnectionMonitor.swift */; };
 		E9B278E629670F1600701E6C /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B278E529670F1600701E6C /* Quiz.swift */; };
 		E9B278E82967123100701E6C /* GameViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B278E72967123100701E6C /* GameViewViewModel.swift */; };
-		E9C40902296A153F000D361B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C40901296A153F000D361B /* ProfileView.swift */; };
+		E9C40902296A153F000D361B /* QuizHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C40901296A153F000D361B /* QuizHistoryView.swift */; };
 		E9C40904296A1557000D361B /* EndGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C40903296A1557000D361B /* EndGameView.swift */; };
 		E9DEE4462965C673001743DA /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DEE4452965C673001743DA /* Category.swift */; };
 		E9E29D992965D1DB00F282D2 /* LaunchViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E29D982965D1DB00F282D2 /* LaunchViewViewModel.swift */; };
@@ -41,11 +41,11 @@
 		E95060E529659A5800077329 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E95E7E66296874C700F15C8F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E969334F2966EE6400CB5AB0 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		E9784A0029707C50006204D2 /* ProfileViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewViewModel.swift; sourceTree = "<group>"; };
+		E9784A0029707C50006204D2 /* QuizHistoryViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizHistoryViewViewModel.swift; sourceTree = "<group>"; };
 		E990587F29659EBF00496982 /* InternetConnectionMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionMonitor.swift; sourceTree = "<group>"; };
 		E9B278E529670F1600701E6C /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		E9B278E72967123100701E6C /* GameViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewViewModel.swift; sourceTree = "<group>"; };
-		E9C40901296A153F000D361B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E9C40901296A153F000D361B /* QuizHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizHistoryView.swift; sourceTree = "<group>"; };
 		E9C40903296A1557000D361B /* EndGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameView.swift; sourceTree = "<group>"; };
 		E9DEE4452965C673001743DA /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E9E29D982965D1DB00F282D2 /* LaunchViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewViewModel.swift; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 				E95060E029659A5600077329 /* LaunchView.swift */,
 				E969334F2966EE6400CB5AB0 /* GameView.swift */,
 				E95E7E66296874C700F15C8F /* SettingsView.swift */,
-				E9C40901296A153F000D361B /* ProfileView.swift */,
+				E9C40901296A153F000D361B /* QuizHistoryView.swift */,
 				E9C40903296A1557000D361B /* EndGameView.swift */,
 				E91B92CA2965EEB100745A69 /* LoadingVIew.swift */,
 			);
@@ -90,7 +90,7 @@
 			children = (
 				E9E29D982965D1DB00F282D2 /* LaunchViewViewModel.swift */,
 				E9B278E72967123100701E6C /* GameViewViewModel.swift */,
-				E9784A0029707C50006204D2 /* ProfileViewViewModel.swift */,
+				E9784A0029707C50006204D2 /* QuizHistoryViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -228,7 +228,7 @@
 				E947A210296C5DD100BC5FCC /* QuizResult.swift in Sources */,
 				E9E29D992965D1DB00F282D2 /* LaunchViewViewModel.swift in Sources */,
 				E95060DF29659A5600077329 /* QuizGameSwiftUIApp.swift in Sources */,
-				E9C40902296A153F000D361B /* ProfileView.swift in Sources */,
+				E9C40902296A153F000D361B /* QuizHistoryView.swift in Sources */,
 				E990588029659EBF00496982 /* InternetConnectionMonitor.swift in Sources */,
 				E91B92CB2965EEB100745A69 /* LoadingVIew.swift in Sources */,
 				E96933502966EE6400CB5AB0 /* GameView.swift in Sources */,
@@ -236,7 +236,7 @@
 				E947A20E296C5D4700BC5FCC /* Extensions.swift in Sources */,
 				E9B278E629670F1600701E6C /* Quiz.swift in Sources */,
 				E90E6A52296AEC41001C0111 /* Constants.swift in Sources */,
-				E9784A0129707C50006204D2 /* ProfileViewViewModel.swift in Sources */,
+				E9784A0129707C50006204D2 /* QuizHistoryViewViewModel.swift in Sources */,
 				E9B278E82967123100701E6C /* GameViewViewModel.swift in Sources */,
 				E95E7E67296874C700F15C8F /* SettingsView.swift in Sources */,
 			);
