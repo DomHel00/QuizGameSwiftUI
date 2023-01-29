@@ -53,7 +53,7 @@ struct GameView: View {
                     
                     Spacer()
                     
-                    Text("\(viewModel.currentQuestion + 1)/\(viewModel.numberOfQuestions)")
+                    Text("\(viewModel.currentQuestion + 1)/\(viewModel.quiz.count)")
                         .font(.title)
                         .bold()
                         .accessibilityElement()
@@ -118,12 +118,12 @@ struct GameView: View {
         }
         /// Result sheet.
         .sheet(isPresented: $viewModel.showEndGameView) {
-            let quizResult = QuizResult(numberOfQuestions: viewModel.numberOfQuestions, numberOfCorrectAnswers: viewModel.numberOfCorrectAnswers, numberOfIncorrectAnswers: viewModel.numberOfIncorrectAnswers, quizCategory: viewModel.quiz[0].category)
+            let quizResult = QuizResult(numberOfQuestions: viewModel.quiz.count, numberOfCorrectAnswers: viewModel.numberOfCorrectAnswers, numberOfIncorrectAnswers: viewModel.numberOfIncorrectAnswers, quizCategory: viewModel.quiz[0].category)
             // Save to quiz history.
-            QuizHistoryViewViewViewModel().addNew(quizResult: quizResult)
+            QuizHistoryViewViewModel().addNew(quizResult: quizResult)
             dismiss()
         } content: {
-            let quizResult = QuizResult(numberOfQuestions: viewModel.numberOfQuestions, numberOfCorrectAnswers: viewModel.numberOfCorrectAnswers, numberOfIncorrectAnswers: viewModel.numberOfIncorrectAnswers, quizCategory: viewModel.quiz[0].category)
+            let quizResult = QuizResult(numberOfQuestions: viewModel.quiz.count, numberOfCorrectAnswers: viewModel.numberOfCorrectAnswers, numberOfIncorrectAnswers: viewModel.numberOfIncorrectAnswers, quizCategory: viewModel.quiz[0].category)
             NavigationView {
                 EndGameView(quizResult: quizResult)
             }

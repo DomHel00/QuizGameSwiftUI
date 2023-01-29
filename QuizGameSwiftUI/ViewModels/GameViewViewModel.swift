@@ -50,7 +50,7 @@ final class GameViewViewModel: ObservableObject {
             numberOfIncorrectAnswers += 1
         }
         
-        if currentQuestion >= numberOfQuestions - 1{
+        if currentQuestion >= quiz.count - 1{
             disabledUI.toggle()
             showEndGameView.toggle()
         }
