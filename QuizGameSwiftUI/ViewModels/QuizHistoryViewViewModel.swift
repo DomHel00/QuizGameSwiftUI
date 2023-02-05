@@ -31,8 +31,14 @@ final class QuizHistoryViewViewModel: ObservableObject {
     
     //  MARK: - Functions
     /// Adds a new record to the array.
-    func addNew(quizResult: QuizResult) {
-        self.quizHistory.append(quizResult)
+    func addNewResult(quizResult: QuizResult) {
+        quizHistory.append(quizResult)
+        saveData()
+    }
+    
+    /// Deletes the selected record from the array.
+    func deleteResult(at offsets: IndexSet) {
+        quizHistory.remove(atOffsets: offsets)
         saveData()
     }
     

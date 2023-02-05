@@ -5,28 +5,18 @@
 //  Created by Dominik Hel on 07.01.2023.
 //
 
+//  MARK: - Imports
 import SwiftUI
-import Photos
 
+//  MARK: - Struct QuizHistoryView
 struct QuizHistoryView: View {
+    //  MARK: - Constants and variables
     @StateObject private var viewModel = QuizHistoryViewViewModel()
     
+    //  MARK: - Body
     var body: some View {
-        Form {
-            Section {
-                HStack {
-                    Spacer()
-                    
-                    Image(systemName: "person.circle")
-                        .resizable()
-                        .frame(width: Constants.width * 0.35, height: Constants.width * 0.35, alignment: .center)
-                        .scaledToFit()
-                    
-                    Spacer()
-                }
-            }
-            
-            Section("History") {
+        ZStack {
+            List {
                 ForEach(viewModel.quizHistory, id: \.self) { quiz in
                     NavigationLink {
                         EndGameView(quizResult: quiz)
@@ -47,11 +37,23 @@ struct QuizHistoryView: View {
                                 .font(.headline)
                                 .bold()
                         }
-                        .edgesIgnoringSafeArea([.leading, .trailing])
-                        .frame(maxWidth: .infinity)
-
+                        .accessibilityElement()
+                        .accessibilityLabel("Quiz: \(quiz.quizCategory.decodeBase64()!.replacingOccurrences(of: "Entertainment: ", with: "").replacingOccurrences(of: "Science: ", with: "")) completed on \(quiz.creationDate) with \(quiz.percentageSuccessRate)% success rate.")
+                        .accessibilityHint("Double tap to view details.")
                     }
                 }
+                .onDelete(perform: viewModel.deleteResult(at:))
+            }
+            .listStyle(.grouped)
+            
+            if viewModel.quizHistory.isEmpty {
+                Text("No quiz history")
+                    .font(.headline)
+            }
+        }
+        .toolbar {
+            ToolbarItem {
+                EditButton()
             }
         }
         .navigationTitle("Quiz history")
