@@ -22,119 +22,131 @@ struct GameView: View {
     
     //  MARK: - Body
     var body: some View {
-        ZStack {
-            /// Logo.
-            VStack {
-                Image("logo")
-                    .resizable()
-                    .frame(width: Constants.width, height: Constants.width)
-                    .scaledToFit()
-                    .opacity(0.2)
-            }
-            .accessibilityElement()
-            .accessibilityHidden(true)
-            
-            /// Number of correct answers, current question, number of incorrect answers.
-            VStack {
-                HStack {
-                    VStack {
-                        Text("\(viewModel.numberOfCorrectAnswers)")
-                            .font(.title)
-                            .bold()
-                        
-                        Text("Correct")
-                            .font(.callout)
-                            .bold()
-                    }
-                    .foregroundColor(.green)
-                    .padding(.horizontal)
-                    .accessibilityElement()
-                    .accessibilityLabel("Number of correct answers is")
-                    .accessibilityValue("\(viewModel.numberOfCorrectAnswers)")
-                    
-                    Spacer()
-                    
-                    Text("\(viewModel.currentQuestion + 1)/\(viewModel.quiz.count)")
-                        .font(.title)
-                        .bold()
+        GeometryReader { proxy in
+            ZStack {
+                /// Logo.
+                VStack {
+                    Image("logo")
+                        .resizable()
+                        .frame(width: Constants.width, height: Constants.width)
+                        .scaledToFit()
+                        .opacity(0.2)
+                }
+                .accessibilityElement()
+                .accessibilityHidden(true)
+                
+                /// Number of correct answers, current question, number of incorrect answers.
+                VStack {
+                    HStack {
+                        VStack {
+                            Text("\(viewModel.numberOfCorrectAnswers)")
+                                .font(.title)
+                                .bold()
+                            
+                            Text("Correct")
+                                .font(.callout)
+                                .bold()
+                        }
+                        .foregroundColor(.green)
+                        .padding(.horizontal)
                         .accessibilityElement()
-                        .accessibilityLabel("Question \(viewModel.currentQuestion + 1) of \(viewModel.quiz.count)")
+                        .accessibilityLabel("Number of correct answers is")
+                        .accessibilityValue("\(viewModel.numberOfCorrectAnswers)")
+                        
+                        Spacer()
+                        
+                        Text("\(viewModel.currentQuestion + 1)/\(viewModel.quiz.count)")
+                            .font(.title)
+                            .bold()
+                            .accessibilityElement()
+                            .accessibilityLabel("Question \(viewModel.currentQuestion + 1) of \(viewModel.quiz.count)")
+                        
+                        Spacer()
+                        
+                        VStack {
+                            Text("\(viewModel.numberOfIncorrectAnswers)")
+                                .font(.title)
+                                .bold()
+                            
+                            Text("Incorrect")
+                                .font(.callout)
+                                .bold()
+                        }
+                        .foregroundColor(.red)
+                        .padding(.horizontal)
+                        .accessibilityElement()
+                        .accessibilityLabel("Number of incorrect answers is")
+                        .accessibilityValue("\(viewModel.numberOfIncorrectAnswers)")
+                    }
                     
                     Spacer()
                     
-                    VStack {
-                        Text("\(viewModel.numberOfIncorrectAnswers)")
-                            .font(.title)
-                            .bold()
-                        
-                        Text("Incorrect")
-                            .font(.callout)
-                            .bold()
+                    /// Current question.
+                    Text(viewModel.quiz[viewModel.currentQuestion].question.decodeBase64() ?? "No")
+                        .font(.title2)
+                        .bold()
+                        .multilineTextAlignment(.center)
+                        .padding(8)
+                    
+                    Spacer()
+                    
+                    /// Answer buttons.
+                    ForEach(viewModel.quiz[viewModel.currentQuestion].allAnswers, id: \.self) { answer in
+                        Button {
+                            let selectedAnswer = answer.decodeBase64()!
+                            viewModel.checkAnswer(selectedAnswer: selectedAnswer)
+                        } label: {
+                            Text(answer.decodeBase64()!)
+                                .frame(width: proxy.size.width - 32, height: proxy.size.height * 0.3 / 4.0)
+                            //.frame(width: Constants.width - 16, height: 55)
+                                .padding(.vertical)
+                                .minimumScaleFactor(0.5)
+                                .foregroundColor(.primary)
+                                .border(Color.primary)
+                                .multilineTextAlignment(.center)
+                                .cornerRadius(12)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .stroke(Color.primary, lineWidth: 2)
+                                )
+                                .disabled(viewModel.disabledUI)
+                        }
+                        .accessibilityElement()
+                        .accessibilityLabel("Answer:")
+                        .accessibilityValue("\(answer.decodeBase64()!)")
+                        .accessibilityHint("Double tap to confirm the selected answer.")
                     }
-                    .foregroundColor(.red)
-                    .padding(.horizontal)
-                    .accessibilityElement()
-                    .accessibilityLabel("Number of incorrect answers is")
-                    .accessibilityValue("\(viewModel.numberOfIncorrectAnswers)")
+                    
+                    .navigationTitle("Quiz")
+                    .navigationBarTitleDisplayMode(.inline)
                 }
+            }
+            /// Result sheet.
+            .sheet(isPresented: $viewModel.showEndGameView) {
+                let quizResult = QuizResult(numberOfQuestions: viewModel.quiz.count, numberOfCorrectAnswers: viewModel.numberOfCorrectAnswers, numberOfIncorrectAnswers: viewModel.numberOfIncorrectAnswers, quizCategory: viewModel.quiz[0].category)
+                // Save to quiz history.
+                QuizHistoryViewViewModel().addNewResult(quizResult: quizResult)
+                dismiss()
+            } content: {
+                let numberOfQuestions = viewModel.quiz.count
+                let numberOfCorrectAnswers = viewModel.numberOfCorrectAnswers
+                let numberOfIncorrectAnswers = viewModel.numberOfIncorrectAnswers
+                let quizCategory = viewModel.quiz[0].category
                 
-                Spacer()
+                let quizResult = QuizResult(numberOfQuestions: numberOfQuestions, numberOfCorrectAnswers: numberOfCorrectAnswers, numberOfIncorrectAnswers: numberOfIncorrectAnswers, quizCategory: quizCategory)
                 
-                /// Current question.
-                Text(viewModel.quiz[viewModel.currentQuestion].question.decodeBase64() ?? "No")
-                    .font(.title2)
-                    .bold()
-                    .multilineTextAlignment(.center)
-                    .padding(8)
-                
-                Spacer()
-                
-                /// Answer buttons.
-                ForEach(viewModel.quiz[viewModel.currentQuestion].allAnswers, id: \.self) { answer in
-                    Button {
-                        let selectedAnswer = answer.decodeBase64()!
-                        viewModel.checkAnswer(selectedAnswer: selectedAnswer)
-                    } label: {
-                        Text(answer.decodeBase64()!)
-                            .frame(width: Constants.width - 16, height: 55)
-                            .padding(8)
-                            .foregroundColor(.primary)
-                            .border(Color.primary)
-                            .multilineTextAlignment(.center)
-                            .cornerRadius(12)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.primary, lineWidth: 2)
-                            )
-                            .disabled(viewModel.disabledUI)
-                    }
-                    .accessibilityElement()
-                    .accessibilityLabel("Answer:")
-                    .accessibilityValue("\(answer.decodeBase64()!)")
-                    .accessibilityHint("Double tap to confirm the selected answer.")
+                NavigationView {
+                    EndGameView(quizResult: quizResult)
                 }
-                .navigationTitle("Quiz")
-                .navigationBarTitleDisplayMode(.inline)
+            }
+            /// Closes the "searchBar" in LaunchView.
+            .onDisappear {
+                withAnimation {
+                    dismissSearch()
+                }
             }
         }
-        /// Result sheet.
-        .sheet(isPresented: $viewModel.showEndGameView) {
-            let quizResult = QuizResult(numberOfQuestions: viewModel.quiz.count, numberOfCorrectAnswers: viewModel.numberOfCorrectAnswers, numberOfIncorrectAnswers: viewModel.numberOfIncorrectAnswers, quizCategory: viewModel.quiz[0].category)
-            // Save to quiz history.
-            QuizHistoryViewViewModel().addNew(quizResult: quizResult)
-            dismiss()
-        } content: {
-            let quizResult = QuizResult(numberOfQuestions: viewModel.quiz.count, numberOfCorrectAnswers: viewModel.numberOfCorrectAnswers, numberOfIncorrectAnswers: viewModel.numberOfIncorrectAnswers, quizCategory: viewModel.quiz[0].category)
-            NavigationView {
-                EndGameView(quizResult: quizResult)
-            }
-        }
-        /// Closes the "searchBar" in LaunchView.
-        .onDisappear {
-            withAnimation {
-                dismissSearch()
-            }
-        }
+        .background()
     }
 }
 
