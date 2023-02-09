@@ -11,6 +11,7 @@ import SwiftUI
 //  MARK: - Struct LaunchView
 struct LaunchView: View {
     //  MARK: - Constants and variables
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     @StateObject private var viewModel = LaunchViewViewModel()
 
     //  MARK: - Body
@@ -88,6 +89,7 @@ struct LaunchView: View {
                 }
             }
         }
+        .dynamicTypeSize(...DynamicTypeSize.xLarge)
         .searchable(text: $viewModel.searchText, placement: .toolbar, prompt: "Search a category...")
         .autocorrectionDisabled()
         .disabled(viewModel.disabledUI)

@@ -11,6 +11,7 @@ import SwiftUI
 //  MARK: - Struct QuizHistoryView
 struct QuizHistoryView: View {
     //  MARK: - Constants and variables
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     @StateObject private var viewModel = QuizHistoryViewViewModel()
     
     //  MARK: - Body
@@ -56,6 +57,7 @@ struct QuizHistoryView: View {
                 EditButton()
             }
         }
+        .dynamicTypeSize(...DynamicTypeSize.xLarge)
         .navigationTitle("Quiz history")
         .navigationBarTitleDisplayMode(.inline)
     }

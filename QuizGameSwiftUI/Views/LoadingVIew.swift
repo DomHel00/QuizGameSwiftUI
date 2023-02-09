@@ -25,7 +25,7 @@ struct LoadingView: View {
                 .multilineTextAlignment(.center)
                 .padding()
         }
-        .dynamicTypeSize(...DynamicTypeSize.xxLarge)
+        .dynamicTypeSize(...DynamicTypeSize.xLarge)
         .frame(width: Constants.width * 0.4, height: Constants.width * 0.4)
         .border(Color.primary)
         .background(Color(.quaternaryLabel))

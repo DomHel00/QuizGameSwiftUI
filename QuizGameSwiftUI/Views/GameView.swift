@@ -13,6 +13,7 @@ struct GameView: View {
     //  MARK: - Constants and variables
     @Environment(\.dismiss) var dismiss
     @Environment(\.dismissSearch) var dismissSearch
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     @StateObject private var viewModel: GameViewViewModel
     
     //  MARK: - Init
@@ -121,6 +122,7 @@ struct GameView: View {
                     .navigationBarTitleDisplayMode(.inline)
                 }
             }
+            .dynamicTypeSize(...DynamicTypeSize.xLarge)
             /// Result sheet.
             .sheet(isPresented: $viewModel.showEndGameView) {
                 let quizResult = QuizResult(numberOfQuestions: viewModel.quiz.count, numberOfCorrectAnswers: viewModel.numberOfCorrectAnswers, numberOfIncorrectAnswers: viewModel.numberOfIncorrectAnswers, quizCategory: viewModel.quiz[0].category)

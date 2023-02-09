@@ -11,6 +11,7 @@ import SwiftUI
 //  MARK: - Struct EndGameView
 struct EndGameView: View {
     //  MARK: - Constants and variables
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     private let quizResult: QuizResult
     
     //  MARK: - Init
@@ -86,6 +87,7 @@ struct EndGameView: View {
             .navigationTitle("Your results")
             .navigationBarTitleDisplayMode(.inline)
         }
+        .dynamicTypeSize(...DynamicTypeSize.xLarge)
     }
 }
 

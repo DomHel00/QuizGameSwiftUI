@@ -11,6 +11,7 @@ import SwiftUI
 //  MARK: - Struct SettingsView
 struct SettingsView: View {
     //  MARK: - Constants and variables
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     @AppStorage("numberOfQuestions") var numberOfQuestions = 10
     private let choices = [5, 10, 15, 20, 25, 30]
     
@@ -34,6 +35,7 @@ struct SettingsView: View {
                 Spacer()
             }
         }
+        .dynamicTypeSize(...DynamicTypeSize.xLarge)
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.inline)
     }
