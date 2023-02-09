@@ -99,7 +99,6 @@ struct GameView: View {
                         } label: {
                             Text(answer.decodeBase64()!)
                                 .frame(width: proxy.size.width - 32, height: proxy.size.height * 0.3 / 4.0)
-                            //.frame(width: Constants.width - 16, height: 55)
                                 .padding(.vertical)
                                 .minimumScaleFactor(0.5)
                                 .foregroundColor(.primary)
@@ -110,14 +109,13 @@ struct GameView: View {
                                     RoundedRectangle(cornerRadius: 12)
                                         .stroke(Color.primary, lineWidth: 2)
                                 )
-                                .disabled(viewModel.disabledUI)
                         }
+                        .disabled(viewModel.disabledUI)
                         .accessibilityElement()
                         .accessibilityLabel("Answer:")
                         .accessibilityValue("\(answer.decodeBase64()!)")
                         .accessibilityHint("Double tap to confirm the selected answer.")
                     }
-                    
                     .navigationTitle("Quiz")
                     .navigationBarTitleDisplayMode(.inline)
                 }
@@ -148,7 +146,6 @@ struct GameView: View {
                 }
             }
         }
-        .background()
     }
 }
 
