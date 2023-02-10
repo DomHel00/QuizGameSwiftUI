@@ -30,6 +30,9 @@ final class GameViewViewModel: ObservableObject {
     /// EndGameView trigger.
     @Published var showEndGameView = false
     
+    /// HapticFeedbackGenerator.
+    private let generator = HapticFeedbackGenerator()
+    
     //  MARK: - Init
     init(quiz: [Question]) {
         self.quiz = quiz
@@ -45,9 +48,11 @@ final class GameViewViewModel: ObservableObject {
 
         if selectedAnswer == quiz[currentQuestion].correct_answer.decodeBase64()! {
             numberOfCorrectAnswers += 1
+            generator.makeFeedback(type: .correct)
         }
         else {
             numberOfIncorrectAnswers += 1
+            generator.makeFeedback(type: .incorrect)
         }
         
         if currentQuestion >= quiz.count - 1{

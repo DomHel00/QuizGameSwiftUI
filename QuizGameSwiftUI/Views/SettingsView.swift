@@ -13,6 +13,7 @@ struct SettingsView: View {
     //  MARK: - Constants and variables
     @Environment(\.dynamicTypeSize) var dynamicTypeSize
     @AppStorage("numberOfQuestions") var numberOfQuestions = 10
+    @AppStorage("hapticFeedback") var hapticFeedback = false
     private let choices = [5, 10, 15, 20, 25, 30]
     
     //  MARK: - Body
@@ -21,7 +22,7 @@ struct SettingsView: View {
         Form {
             Section("Number of questions") {
                 VStack {
-                    Text("Choose how many questions the quiz will contain.")
+                    Text("Choose how many questions the quiz will contain")
                         .multilineTextAlignment(.center)
                     Picker("Choose how many questions the quiz will contain.", selection: $numberOfQuestions) {
                         ForEach(choices, id: \.self) {
@@ -33,6 +34,12 @@ struct SettingsView: View {
                 .padding()
                 
                 Spacer()
+            }
+            
+            Section("Haptic feedback") {
+                Toggle(isOn: $hapticFeedback) {
+                    Text("Use haptic feedback")
+                }
             }
         }
         .dynamicTypeSize(...DynamicTypeSize.xLarge)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E90AA96429950D96004D8A8B /* HapticFeedbackGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90AA96329950D96004D8A8B /* HapticFeedbackGenerator.swift */; };
 		E90E6A52296AEC41001C0111 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90E6A51296AEC41001C0111 /* Constants.swift */; };
 		E91B92CB2965EEB100745A69 /* LoadingVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91B92CA2965EEB100745A69 /* LoadingVIew.swift */; };
 		E922DC4A2965BEAB00B1C93A /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E922DC492965BEAB00B1C93A /* APICaller.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E90AA96329950D96004D8A8B /* HapticFeedbackGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackGenerator.swift; sourceTree = "<group>"; };
 		E90E6A51296AEC41001C0111 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E91B92CA2965EEB100745A69 /* LoadingVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingVIew.swift; sourceTree = "<group>"; };
 		E922DC492965BEAB00B1C93A /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				E922DC492965BEAB00B1C93A /* APICaller.swift */,
 				E990587F29659EBF00496982 /* InternetConnectionMonitor.swift */,
+				E90AA96329950D96004D8A8B /* HapticFeedbackGenerator.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				E91B92CB2965EEB100745A69 /* LoadingVIew.swift in Sources */,
 				E96933502966EE6400CB5AB0 /* GameView.swift in Sources */,
 				E922DC4A2965BEAB00B1C93A /* APICaller.swift in Sources */,
+				E90AA96429950D96004D8A8B /* HapticFeedbackGenerator.swift in Sources */,
 				E947A20E296C5D4700BC5FCC /* Extensions.swift in Sources */,
 				E9B278E629670F1600701E6C /* Quiz.swift in Sources */,
 				E90E6A52296AEC41001C0111 /* Constants.swift in Sources */,
