@@ -19,13 +19,15 @@ final class QuizHistoryViewViewModel: ObservableObject {
     private let quizHistoryFileManager = QuizHistoryFileManager()
     
     //  MARK: - Init
-    /// When initializing, the results from the file are load into the array, if there are any.
     init() {
         self.quizHistory = quizHistoryFileManager.loadDataFromFile()
     }
     
     //  MARK: - Functions
-    /// Deletes the selected record from the array.
+    /// Deletes the selected record from the array and file.
+    ///
+    /// - Parameters:
+    ///     - offsets: A collection of unique integer values that represent the indexes of  objects which will be deleted.
     func deleteResult(at offsets: IndexSet) {
         quizHistory.remove(atOffsets: offsets)
         quizHistoryFileManager.saveAllDataToFile(data: quizHistory)

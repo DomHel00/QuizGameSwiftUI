@@ -5,6 +5,7 @@
 //  Created by Dominik Hel on 09.01.2023.
 //
 
+//  MARK: - Imports
 import SwiftUI
 
 /// Extension of the String structure by a function for decoding.

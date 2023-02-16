@@ -26,6 +26,9 @@ final class HapticFeedbackGenerator {
     
     //  MARK: - Functions
     /// Makes haptic feedback according to the "type" parameter.
+    ///
+    /// - Parameters:
+    ///     - type: The haptic type which will be handled.
     func makeFeedback(type: HapticFeedbackType) {
         if UserDefaults.standard.bool(forKey: "hapticFeedback") {
             switch type {

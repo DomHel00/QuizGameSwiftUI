@@ -5,6 +5,7 @@
 //  Created by Dominik Hel on 08.01.2023.
 //
 
+//  MARK: - Imports
 import SwiftUI
 
 /// Just some constants.

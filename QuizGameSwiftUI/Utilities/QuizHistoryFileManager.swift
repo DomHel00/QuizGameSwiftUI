@@ -22,7 +22,7 @@ final class QuizHistoryFileManager {
                 }
                 
                 let decodedData = try JSONDecoder().decode([QuizResult].self, from: data)
-                return decodedData
+                return decodedData.reversed()
             }
             catch {
                 print(error.localizedDescription)

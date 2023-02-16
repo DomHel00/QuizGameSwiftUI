@@ -18,6 +18,7 @@ final class APICaller {
     private init() {}
     
     //  MARK: - Enums
+    /// Custom errors.
     enum APICallerError: Error, LocalizedError {
         case invalidURL
         case dataTaskError
@@ -37,6 +38,9 @@ final class APICaller {
     
     //  MARK: - Functions
     /// Generic function for fetching data.
+    ///
+    /// - Parameters:
+    ///     - urlString: URL address from which the data will be fetch.
     public func fetchData<T: Codable>(urlString: String) async throws -> T {
         guard let url = URL(string: urlString) else {
             throw APICallerError.invalidURL
