@@ -124,8 +124,8 @@ struct GameView: View {
             /// Result sheet.
             .sheet(isPresented: $viewModel.showEndGameView) {
                 let quizResult = QuizResult(numberOfQuestions: viewModel.quiz.count, numberOfCorrectAnswers: viewModel.numberOfCorrectAnswers, numberOfIncorrectAnswers: viewModel.numberOfIncorrectAnswers, quizCategory: viewModel.quiz[0].category)
-                // Save to quiz history.
-                QuizHistoryViewViewModel().addNewResult(quizResult: quizResult)
+                // Saves results to file.
+                QuizHistoryFileManager().saveOneObject(object: quizResult)
                 dismiss()
             } content: {
                 let numberOfQuestions = viewModel.quiz.count
