@@ -18,13 +18,13 @@ Aplikace plná kvízů pro prohloubení Vašich vědomostí.
 ## Ukázky
 <table>
   <tr>
-    <td><img src="https://drive.google.com/1-eLJPS8jLzKhX9T8Q5N1npEURDXcPSi_" width=160></td>
-    <td><img src="https://drive.google.com/1C5_CyH4HFYQVTfC8UD9xkEWVrqOwWyVi" width=160></td>
-    <td><img src="https://drive.google.com/1i5ypsPOg-cOhq0xEzeTISoJsEXPhwVMH" width=160></td>
-    <td><img src="https://drive.google.com/1IiX0ZoNtHO7z5nqFADhHGUxQ-hhZfrIC" width=160></td>
-    <td><img src="https://drive.google.com/1GTBQ6zrd6e6XoNtU6Z4SpG-gRt3I_U84" width=160></td>
-    <td><img src="https://drive.google.com/18wNnE4s4dbIxQy6x8b4SST3y3U27BNEw" width=160></td>
-    <td><img src="https://drive.google.com/1nWkt7mEB7QwHaubjnGmmisxgUpEnBx4x" width=160></td>
+    <td><img src="https://drive.google.com/uc?export=view&id=1-eLJPS8jLzKhX9T8Q5N1npEURDXcPSi_" width=160></td>
+    <td><img src="https://drive.google.com/uc?export=view&id=1C5_CyH4HFYQVTfC8UD9xkEWVrqOwWyVi" width=160></td>
+    <td><img src="https://drive.google.com/uc?export=view&id=1i5ypsPOg-cOhq0xEzeTISoJsEXPhwVMH" width=160></td>
+    <td><img src="https://drive.google.com/uc?export=view&id=1IiX0ZoNtHO7z5nqFADhHGUxQ-hhZfrIC" width=160></td>
+    <td><img src="https://drive.google.com/uc?export=view&id=1GTBQ6zrd6e6XoNtU6Z4SpG-gRt3I_U84" width=160></td>
+    <td><img src="https://drive.google.com/uc?export=view&id=18wNnE4s4dbIxQy6x8b4SST3y3U27BNEw" width=160></td>
+    <td><img src="https://drive.google.com/uc?export=view&id=1nWkt7mEB7QwHaubjnGmmisxgUpEnBx4x" width=160></td>
   </tr>
  </table>
 
