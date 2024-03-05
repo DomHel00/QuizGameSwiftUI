@@ -47,7 +47,7 @@ final class LaunchViewViewModel: ObservableObject {
     @Published var isQuizLoaded = false
     
     /// Loading state enum.
-    enum LoadingState {
+    enum AppState {
         case loading, loaded, failed
     }
     
@@ -57,7 +57,7 @@ final class LaunchViewViewModel: ObservableObject {
     }
     
     /// Holds current lloading state.
-    private(set) var state: LoadingState = .loading
+    private(set) var state: AppState = .loading
     
     /// Holds current fetch function type.
     private(set) var fetchType: fetchFunctionType = .categories
@@ -83,7 +83,7 @@ final class LaunchViewViewModel: ObservableObject {
                 self.categories = categories.trivia_categories
                 self.categories.remove(at: 16)
                 self.categories.remove(at: 20)
-
+                
                 self.state = .loaded
                 self.disabledUI.toggle()
             }
