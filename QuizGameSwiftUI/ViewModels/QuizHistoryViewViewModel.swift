@@ -9,7 +9,6 @@
 import Foundation
 
 //  MARK: - Class QuizHistoryViewViewModel
-@MainActor
 final class QuizHistoryViewViewModel: ObservableObject {
     //  MARK: - Constants and variables
     /// Array of quiz results.
@@ -28,6 +27,7 @@ final class QuizHistoryViewViewModel: ObservableObject {
     ///
     /// - Parameters:
     ///     - offsets: A collection of unique integer values that represent the indexes of  objects which will be deleted.
+    
     func deleteResult(at offsets: IndexSet) {
         quizHistory.remove(atOffsets: offsets)
         quizHistoryFileManager.saveAllDataToFile(data: quizHistory)

@@ -22,34 +22,17 @@ struct QuizHistoryView: View {
                     NavigationLink {
                         EndGameView(quizResult: quiz)
                     } label: {
-                        HStack {
-                            VStack(alignment: .leading, spacing: 8) {
-                                Text("Quiz: \(quiz.quizCategory.decodeBase64()!.replacingOccurrences(of: "Entertainment: ", with: "").replacingOccurrences(of: "Science: ", with: ""))")
-                                    .font(.headline)
-                                    .bold()
-                                
-                                Text("\(quiz.creationDate)")
-                                    .font(.caption)
-                            }
-                            
-                            Spacer()
-                            
-                            Text("\(quiz.percentageSuccessRate)%")
-                                .font(.headline)
-                                .bold()
-                        }
-                        .accessibilityElement()
-                        .accessibilityLabel("Quiz: \(quiz.quizCategory.decodeBase64()!.replacingOccurrences(of: "Entertainment: ", with: "").replacingOccurrences(of: "Science: ", with: "")) completed on \(quiz.creationDate) with \(quiz.percentageSuccessRate)% success rate.")
-                        .accessibilityHint("Double tap to view details.")
+                        QuizHistoryListCell(quiz: quiz)
                     }
                 }
                 .onDelete(perform: viewModel.deleteResult(at:))
             }
-            .listStyle(.grouped)
+            .listStyle(.plain)
             
             if viewModel.quizHistory.isEmpty {
-                Text("No quiz history")
-                    .font(.headline)
+                Text("No quiz history yet!")
+                    .font(.title)
+                    .bold()
             }
         }
         .toolbar {

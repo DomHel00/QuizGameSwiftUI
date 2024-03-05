@@ -22,6 +22,8 @@
 		E9784A0129707C50006204D2 /* QuizHistoryViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9784A0029707C50006204D2 /* QuizHistoryViewViewModel.swift */; };
 		E9884123299CEBFD004EF1AD /* QuizHistoryFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9884122299CEBFD004EF1AD /* QuizHistoryFileManager.swift */; };
 		E990588029659EBF00496982 /* InternetConnectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E990587F29659EBF00496982 /* InternetConnectionMonitor.swift */; };
+		E9A23DC92B97280700538963 /* QuizHistoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A23DC82B97280700538963 /* QuizHistoryListCell.swift */; };
+		E9A23DCB2B9729E700538963 /* CategoriesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A23DCA2B9729E700538963 /* CategoriesListCell.swift */; };
 		E9B278E629670F1600701E6C /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B278E529670F1600701E6C /* Quiz.swift */; };
 		E9B278E82967123100701E6C /* GameViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B278E72967123100701E6C /* GameViewViewModel.swift */; };
 		E9C40902296A153F000D361B /* QuizHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C40901296A153F000D361B /* QuizHistoryView.swift */; };
@@ -47,6 +49,8 @@
 		E9784A0029707C50006204D2 /* QuizHistoryViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizHistoryViewViewModel.swift; sourceTree = "<group>"; };
 		E9884122299CEBFD004EF1AD /* QuizHistoryFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizHistoryFileManager.swift; sourceTree = "<group>"; };
 		E990587F29659EBF00496982 /* InternetConnectionMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionMonitor.swift; sourceTree = "<group>"; };
+		E9A23DC82B97280700538963 /* QuizHistoryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizHistoryListCell.swift; sourceTree = "<group>"; };
+		E9A23DCA2B9729E700538963 /* CategoriesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListCell.swift; sourceTree = "<group>"; };
 		E9B278E529670F1600701E6C /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		E9B278E72967123100701E6C /* GameViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewViewModel.swift; sourceTree = "<group>"; };
 		E9C40901296A153F000D361B /* QuizHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizHistoryView.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 				E9C40901296A153F000D361B /* QuizHistoryView.swift */,
 				E9C40903296A1557000D361B /* EndGameView.swift */,
 				E91B92CA2965EEB100745A69 /* LoadingVIew.swift */,
+				E9A23DCC2B972B7B00538963 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -156,6 +161,15 @@
 				E947A20D296C5D4700BC5FCC /* Extensions.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		E9A23DCC2B972B7B00538963 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E9A23DCA2B9729E700538963 /* CategoriesListCell.swift */,
+				E9A23DC82B97280700538963 /* QuizHistoryListCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,8 +249,10 @@
 				E9E29D992965D1DB00F282D2 /* LaunchViewViewModel.swift in Sources */,
 				E95060DF29659A5600077329 /* QuizGameSwiftUIApp.swift in Sources */,
 				E9C40902296A153F000D361B /* QuizHistoryView.swift in Sources */,
+				E9A23DC92B97280700538963 /* QuizHistoryListCell.swift in Sources */,
 				E990588029659EBF00496982 /* InternetConnectionMonitor.swift in Sources */,
 				E9884123299CEBFD004EF1AD /* QuizHistoryFileManager.swift in Sources */,
+				E9A23DCB2B9729E700538963 /* CategoriesListCell.swift in Sources */,
 				E91B92CB2965EEB100745A69 /* LoadingVIew.swift in Sources */,
 				E96933502966EE6400CB5AB0 /* GameView.swift in Sources */,
 				E922DC4A2965BEAB00B1C93A /* APICaller.swift in Sources */,
