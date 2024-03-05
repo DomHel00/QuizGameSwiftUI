@@ -13,7 +13,7 @@ struct LaunchView: View {
     //  MARK: - Constants and variables
     @Environment(\.dynamicTypeSize) var dynamicTypeSize
     @StateObject private var viewModel = LaunchViewViewModel()
-
+    
     //  MARK: - Body
     var body: some View {
         NavigationView {
@@ -42,21 +42,14 @@ struct LaunchView: View {
                 /// List of categories.
                 List {
                     ForEach(viewModel.filteredcategories) { category in
-                        HStack {
-                            Button("\(category.displayName)") {
-                                // We need to hide the keyboard before displaying GameView.
-                                UIApplication.shared.endEditing()
-                                viewModel.selectedCategoryID = category.id
-                                Task {
-                                    await viewModel.fetchQuiz()
-                                }
+                        CategoriesListCell(category: category, action: {
+                            // We need to hide the keyboard before displaying GameView.
+                            UIApplication.shared.endEditing()
+                            viewModel.selectedCategoryID = category.id
+                            Task {
+                                await viewModel.fetchQuiz()
                             }
-                            .foregroundColor(.init(uiColor: .label))
-
-                            Spacer()
-                            
-                            Image(systemName: "arrow.right")
-                        }
+                        })
                         .blur(radius: viewModel.state == .loading ? CGFloat(5) : CGFloat(0))
                         .accessibilityElement()
                         .accessibilityLabel("Category:")
@@ -64,7 +57,7 @@ struct LaunchView: View {
                         .accessibilityHint("Double tap to start the quiz.")
                     }
                 }
-                .listStyle(.grouped)
+                .listStyle(.plain)
                 
                 /// Shows LoadingView by loading state.
                 if viewModel.state == .loading && viewModel.showInternetConnectionAlert == false {
@@ -102,7 +95,7 @@ struct LaunchView: View {
                     switch viewModel.fetchType {
                     case .categories:
                         await viewModel.fetchCategories()
-
+                        
                     case .quiz:
                         await viewModel.fetchQuiz()
                     }
