@@ -40,7 +40,7 @@ struct EndGameView: View {
                     .bold()
                     .multilineTextAlignment(.center)
                     .padding()
-                    
+                
                 HStack {
                     VStack {
                         Text("\(quizResult.numberOfCorrectAnswers)")
@@ -73,7 +73,7 @@ struct EndGameView: View {
                     .accessibilityElement()
                     .accessibilityLabel("Number of incorrect answers is")
                     .accessibilityValue("\(quizResult.numberOfIncorrectAnswers)")
-
+                    
                 }
                 
                 Text("Your success percentage:\n\(quizResult.percentageSuccessRate)%")
@@ -84,9 +84,9 @@ struct EndGameView: View {
                 
                 Spacer()
             }
-            .navigationTitle("Your results")
-            .navigationBarTitleDisplayMode(.inline)
         }
+        .navigationTitle("Your results")
+        .navigationBarTitleDisplayMode(.inline)
         .dynamicTypeSize(...DynamicTypeSize.xLarge)
     }
 }
