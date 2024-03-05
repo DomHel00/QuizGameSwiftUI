@@ -19,10 +19,10 @@ final class GameViewViewModel: ObservableObject {
     @Published private(set) var currentQuestion = 0
     
     /// Number of correct answers.
-    @Published private(set) var numberOfCorrectAnswers = 0
-
+    private(set) var numberOfCorrectAnswers = 0
+    
     /// Number of incorrect answers.
-    @Published private(set) var numberOfIncorrectAnswers = 0
+    private(set) var numberOfIncorrectAnswers = 0
     
     /// Bool variable to disable the UI.
     @Published private(set) var disabledUI = false
@@ -32,6 +32,9 @@ final class GameViewViewModel: ObservableObject {
     
     /// HapticFeedbackGenerator.
     private let generator = HapticFeedbackGenerator()
+    
+    /// Quiz history file manager.
+    private let quizHistoryFileManager = QuizHistoryFileManager()
     
     //  MARK: - Init
     init(quiz: [Question]) {
@@ -45,7 +48,7 @@ final class GameViewViewModel: ObservableObject {
     ///     - selectedAnswer: Selected answer.
     func checkAnswer(selectedAnswer: String) {
         disabledUI.toggle()
-
+        
         if selectedAnswer == quiz[currentQuestion].correct_answer.decodeBase64()! {
             numberOfCorrectAnswers += 1
             generator.makeFeedback(type: .correct)
@@ -56,6 +59,7 @@ final class GameViewViewModel: ObservableObject {
         }
         
         if currentQuestion >= quiz.count - 1{
+            quizHistoryFileManager.saveOneObject(object: createQuizResult())
             showEndGameView.toggle()
             return
         }
@@ -64,5 +68,10 @@ final class GameViewViewModel: ObservableObject {
         }
         
         disabledUI.toggle()
+    }
+    
+    /// Create a QuizResult object.
+    func createQuizResult() -> QuizResult {
+        return QuizResult(numberOfQuestions: quiz.count, numberOfCorrectAnswers: numberOfCorrectAnswers, numberOfIncorrectAnswers: numberOfIncorrectAnswers, quizCategory: quiz[0].category)
     }
 }

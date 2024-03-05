@@ -14,11 +14,11 @@ struct GameView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.dismissSearch) var dismissSearch
     @Environment(\.dynamicTypeSize) var dynamicTypeSize
-    @StateObject private var viewModel: GameViewViewModel
+    @ObservedObject private var viewModel: GameViewViewModel
     
     //  MARK: - Init
     init(viewModel: GameViewViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
+        _viewModel = ObservedObject(wrappedValue: viewModel)
     }
     
     //  MARK: - Body
@@ -104,7 +104,6 @@ struct GameView: View {
                                 .foregroundColor(.primary)
                                 .border(Color.primary)
                                 .multilineTextAlignment(.center)
-                                .cornerRadius(12)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 12)
                                         .stroke(Color.primary, lineWidth: 2)
@@ -123,20 +122,10 @@ struct GameView: View {
             .dynamicTypeSize(...DynamicTypeSize.xLarge)
             /// Result sheet.
             .sheet(isPresented: $viewModel.showEndGameView) {
-                let quizResult = QuizResult(numberOfQuestions: viewModel.quiz.count, numberOfCorrectAnswers: viewModel.numberOfCorrectAnswers, numberOfIncorrectAnswers: viewModel.numberOfIncorrectAnswers, quizCategory: viewModel.quiz[0].category)
-                // Saves results to file.
-                QuizHistoryFileManager().saveOneObject(object: quizResult)
                 dismiss()
             } content: {
-                let numberOfQuestions = viewModel.quiz.count
-                let numberOfCorrectAnswers = viewModel.numberOfCorrectAnswers
-                let numberOfIncorrectAnswers = viewModel.numberOfIncorrectAnswers
-                let quizCategory = viewModel.quiz[0].category
-                
-                let quizResult = QuizResult(numberOfQuestions: numberOfQuestions, numberOfCorrectAnswers: numberOfCorrectAnswers, numberOfIncorrectAnswers: numberOfIncorrectAnswers, quizCategory: quizCategory)
-                
                 NavigationView {
-                    EndGameView(quizResult: quizResult)
+                    EndGameView(quizResult: viewModel.createQuizResult())
                 }
             }
             /// Closes the "searchBar" in LaunchView.
